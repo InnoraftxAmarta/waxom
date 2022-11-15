@@ -283,8 +283,10 @@ html {
             margin: 0;
         }
     }
-    .f-col:hover * {
-        color: $theme-text-color;
+    .f-col:hover {
+        * {
+            color: $theme-text-color;
+        }
     }
 }
 // feature ends here
@@ -340,9 +342,11 @@ html {
         .slick-dots {
             left: 0;
             bottom: 16px;
-            li button::before {
-                color: white !important;
-                opacity: 0.75;
+            li {
+                button::before {
+                    color: white !important;
+                    opacity: 0.75;
+                }
             }
         }
         .slick-slide {
@@ -372,14 +376,6 @@ html {
         }
         .slick-dot {
             margin: 0 auto;
-        }
-    }
-}
-@media only screen and (max-width: 576px) {
-    .designs {
-        padding-top: 30px;
-        .div3-para {
-            margin-bottom: 30px;
         }
     }
 }
