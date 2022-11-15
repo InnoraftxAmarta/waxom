@@ -1,6 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
-*, body {
+*,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -24,16 +25,30 @@
   height: 100vh;
   width: 100%;
 }
-.banner .navbar-light .navbar-nav .nav-link {
+@media only screen and (max-width: 768px) {
+  .banner {
+    height: 70vh;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .banner {
+    height: 60vh;
+  }
+}
+.banner .container {
+  height: 100%;
+  position: relative;
+}
+.banner .container .navbar-light .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.55);
 }
-.banner .hover-btn {
+.banner .container .hover-btn {
   color: #fbfaf8;
 }
-.banner #navbarSupportedContent {
+.banner .container #navbarSupportedContent {
   text-align: right;
 }
-.banner .searchbar {
+.banner .container .searchbar {
   @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
   float: right;
   position: relative;
@@ -43,7 +58,7 @@
   bottom: 0;
   height: 100px;
 }
-.banner .searchbar .search {
+.banner .container .searchbar .search {
   position: absolute;
   margin: auto;
   top: 0;
@@ -56,10 +71,10 @@
   transition: all 1s;
   z-index: 4;
 }
-.banner .searchbar .search:hover {
+.banner .container .searchbar .search:hover {
   cursor: pointer;
 }
-.banner .searchbar .search::before {
+.banner .container .searchbar .search::before {
   content: "";
   position: absolute;
   margin: auto;
@@ -73,7 +88,7 @@
   transform: rotate(45deg);
   transition: all 0.5s;
 }
-.banner .searchbar .search::after {
+.banner .container .searchbar .search::after {
   content: "";
   position: absolute;
   margin: auto;
@@ -87,7 +102,7 @@
   border: 2px solid white;
   transition: all 0.5s;
 }
-.banner .searchbar input {
+.banner .container .searchbar input {
   font-family: "Inconsolata", monospace;
   position: relative;
   top: 26px;
@@ -107,25 +122,25 @@
   font-weight: bolder;
   letter-spacing: 0.1em;
 }
-.banner .searchbar input:hover {
+.banner .container .searchbar input:hover {
   cursor: pointer;
 }
-.banner .searchbar input:focus {
+.banner .container .searchbar input:focus {
   width: 150px;
   opacity: 1;
   cursor: text;
 }
-.banner .searchbar input:focus ~ .search {
+.banner .container .searchbar input:focus ~ .search {
   right: -250px;
   background: #151515;
   z-index: 6;
 }
-.banner .searchbar input:focus ~ .search::before {
+.banner .container .searchbar input:focus ~ .search::before {
   top: 0;
   left: 0;
   width: 25px;
 }
-.banner .searchbar input:focus ~ .search::after {
+.banner .container .searchbar input:focus ~ .search::after {
   top: 0;
   left: 0;
   width: 25px;
@@ -135,34 +150,50 @@
   border-radius: 0%;
   transform: rotate(-45deg);
 }
-.banner .searchbar input::-moz-placeholder {
+.banner .container .searchbar input::-moz-placeholder {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
 }
-.banner .searchbar input:-ms-input-placeholder {
+.banner .container .searchbar input:-ms-input-placeholder {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
 }
-.banner .searchbar input::placeholder {
+.banner .container .searchbar input::placeholder {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
 }
-.banner .banner-div .slick-slider .slick-dots {
-  bottom: -100px;
+.banner .container .banner-div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
-.banner .banner-div .slick-slider .slick-dots button::before {
+.banner .container .banner-div .slick-slider .slick-dots {
+  bottom: -200px;
+}
+.banner .container .banner-div .slick-slider .slick-dots button::before {
   color: white;
 }
-.banner .banner-div .slick-slider .slick-next {
+@media only screen and (max-width: 768px) {
+  .banner .container .banner-div .slick-slider .slick-dots {
+    bottom: -100px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .banner .container .banner-div .slick-slider .slick-dots {
+    bottom: -80px;
+  }
+}
+.banner .container .banner-div .slick-slider .slick-next {
   right: 0px;
 }
-.banner .banner-div .slick-arrow {
+.banner .container .banner-div .slick-arrow {
   margin-top: 0vh;
 }
-.banner .banner-div .slick-arrow.slick-prev::before {
+.banner .container .banner-div .slick-arrow.slick-prev::before {
   font-family: "Font Awesome 6 Free" !important;
   content: "\f053";
   color: white;
@@ -170,12 +201,12 @@
   font-size: 50px;
 }
 @media only screen and (max-width: 600px) {
-  .banner .banner-div .slick-arrow.slick-prev::before {
+  .banner .container .banner-div .slick-arrow.slick-prev::before {
     font-family: "Font Awesome 6 Free" !important;
     content: "";
   }
 }
-.banner .banner-div .slick-arrow.slick-next::before {
+.banner .container .banner-div .slick-arrow.slick-next::before {
   content: "\f054";
   color: white;
   font-weight: 900;
@@ -183,87 +214,52 @@
   font-family: "Font Awesome 6 Free";
 }
 @media only screen and (max-width: 600px) {
-  .banner .banner-div .slick-arrow.slick-next::before {
+  .banner .container .banner-div .slick-arrow.slick-next::before {
     font-family: "Font Awesome 6 Free" !important;
     content: "";
   }
 }
-.banner .banner-div .inner-div {
+.banner .container .banner-div .inner-div {
   width: 60%;
-  margin: 20vh auto;
-  padding-top: 50px;
   text-align: center;
   color: white;
   align-content: center;
 }
-.banner .banner-div .inner-div h3 {
+@media only screen and (max-width: 758px) {
+  .banner .container .banner-div .inner-div {
+    width: 80%;
+    margin: 10vh auto;
+    text-align: center;
+    color: white;
+    align-content: center;
+  }
+}
+.banner .container .banner-div .inner-div h3 {
   font-size: 2rem;
   font-weight: 300;
 }
-.banner .banner-div .inner-div h1 {
+.banner .container .banner-div .inner-div h1 {
   font-size: 3rem;
 }
-.banner .banner-div .inner-div p {
+.banner .container .banner-div .inner-div p {
   width: 60%;
   margin: 10px auto 50px auto;
 }
 @media only screen and (max-width: 576px) {
-  .banner .banner-div .inner-div p {
+  .banner .container .banner-div .inner-div p {
     width: 100%;
   }
 }
-.banner .banner-div .inner-div .banner-btn {
+@media only screen and (max-width: 758px) {
+  .banner .container .banner-div .inner-div p {
+    width: 80%;
+  }
+}
+.banner .container .banner-div .inner-div .banner-btn {
   color: white;
   background-color: brown;
 }
-@media only screen and (max-width: 758px) {
-  .banner .banner-div .inner-div {
-    width: 80%;
-  }
-}
 
-@media only screen and (max-width: 768px) {
-  .banner {
-    height: 70vh;
-  }
-  .banner .banner-div .slick-slider .slick-dots {
-    bottom: -80px;
-  }
-  .banner .banner-div .slick-slider .slick-dots button::before {
-    color: white;
-  }
-  .banner .banner-div .inner-div {
-    width: 80%;
-    margin: 10vh auto;
-    text-align: center;
-    color: white;
-    align-content: center;
-  }
-  .banner .banner-div .inner-div p {
-    width: 80%;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .banner {
-    height: 60vh;
-  }
-  .banner .banner-div .slick-slider .slick-dots {
-    bottom: -70px;
-  }
-  .banner .banner-div .slick-slider .slick-dots button::before {
-    color: white;
-  }
-  .banner .banner-div .inner-div {
-    width: 100%;
-    margin: 10vh auto;
-    text-align: center;
-    color: white;
-    align-content: center;
-  }
-  .banner .banner-div .inner-div p {
-    width: 100%;
-  }
-}
 .feature .f-row {
   margin-top: 55px;
   text-align: center;
@@ -296,6 +292,11 @@
   background-color: rgb(255, 255, 244);
   padding-top: 100px;
 }
+@media only screen and (max-width: 768px) {
+  .designs {
+    padding-top: 30px;
+  }
+}
 .designs .div3-heading {
   text-align: center;
 }
@@ -303,6 +304,12 @@
   width: 60%;
   text-align: center;
   margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .designs .div3-para {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }
 .designs .div4-slick-slider {
   margin: 0 auto;
@@ -347,10 +354,6 @@
   color: white !important;
   opacity: 0.75;
 }
-.designs .div4-slick-slider .slick-active li button::before {
-  color: rgb(26, 24, 24) !important;
-  opacity: 0.75;
-}
 .designs .div4-slick-slider .slick-slide {
   opacity: 0;
   margin: 0 0;
@@ -358,10 +361,14 @@
   z-index: -1;
   transform: scale(1.5) translateY(34px);
 }
-.designs .div4-slick-slider .slick-active {
+.designs .div4-slick-slider .slick-slide.slick-active {
   opacity: 1;
 }
-.designs .div4-slick-slider .slick-center {
+.designs .div4-slick-slider .slick-slide.slick-active .slick-active li button::before {
+  color: rgb(26, 24, 24) !important;
+  opacity: 0.75;
+}
+.designs .div4-slick-slider .slick-slide.slick-active.slick-center {
   transform: scale(2);
   height: 100%;
   z-index: 1;
@@ -377,15 +384,6 @@
     padding-top: 30px;
   }
   .designs .div3-para {
-    margin-bottom: 30px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .designs {
-    padding-top: 30px;
-  }
-  .designs .div3-para {
-    width: 100%;
     margin-bottom: 30px;
   }
 }
@@ -419,16 +417,18 @@
     width: auto;
   }
 }
+@media only screen and (max-width: 768px) {
+  .theme .rightdiv {
+    width: auto;
+    margin: 0 auto;
+  }
+}
 .theme .rightdiv .btn {
   margin-top: 40px;
   float: right;
   background-color: #998675;
 }
 @media only screen and (max-width: 768px) {
-  .theme .rightdiv {
-    width: auto;
-    margin: 0 auto;
-  }
   .theme .rightdiv .btn {
     float: none;
     margin: 0 auto;
@@ -572,6 +572,11 @@
 .excellent {
   padding-top: 50px;
 }
+@media only screen and (max-width: 992px) {
+  .excellent .row {
+    flex-direction: column-reverse;
+  }
+}
 .excellent .row .e-para {
   color: #77787c;
   margin-top: 20px;
@@ -580,13 +585,38 @@
   padding-top: 100px;
   padding-bottom: 20px;
 }
+@media only screen and (max-width: 992px) {
+  .excellent .row .e-right-div {
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .excellent .row .e-right-div {
+    padding-top: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .excellent .row .e-right-div {
+    padding-top: 20px;
+  }
+}
 .excellent .row .e-image {
   text-align: end;
+}
+@media only screen and (max-width: 992px) {
+  .excellent .row .e-image {
+    margin: 0 auto;
+  }
 }
 .excellent .row .e-spec {
   margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .excellent .row .e-spec {
+    margin-left: 0;
+  }
 }
 .excellent .row .e-spec p {
   font-size: 1rem;
@@ -600,33 +630,6 @@
   border-radius: 50%;
   background: #998675;
   font-size: 1rem;
-}
-@media only screen and (max-width: 576px) {
-  .excellent .row .e-spec {
-    margin-left: 0;
-  }
-  .excellent .row .e-right-div {
-    padding-top: 20px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .excellent .row .e-spec {
-    margin-left: 0;
-  }
-  .excellent .row .e-right-div {
-    padding-top: 20px;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .excellent .row {
-    flex-direction: column-reverse;
-  }
-  .excellent .row .e-image {
-    margin: 0 auto;
-  }
-  .excellent .row .e-right-div {
-    margin: 0 auto;
-  }
 }
 
 .service {
@@ -737,11 +740,24 @@
   padding-bottom: 100px;
   align-content: center;
 }
+@media only screen and (max-width: 992px) {
+  .sponsors {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+}
 .sponsors .sp-col {
   margin-top: 100px;
   margin-bottom: 100px;
   text-align: center;
   position: relative;
+}
+@media only screen and (max-width: 992px) {
+  .sponsors .sp-col {
+    margin-top: 150px;
+    margin-bottom: 100px;
+    width: 80%;
+  }
 }
 .sponsors .sp-col img {
   position: absolute;
@@ -750,17 +766,6 @@
   transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 992px) {
-  .sponsors {
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .sponsors .sp-col {
-    margin-top: 150px;
-    margin-bottom: 100px;
-    width: 80%;
-  }
-}
 .about {
   background-color: rgb(36, 33, 33);
   padding-top: 50px;
@@ -813,6 +818,14 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+@media only screen and (max-width: 992px) {
+  .footer .right-border {
+    width: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
 .footer a {
   display: inline;
   text-decoration: none;
@@ -829,12 +842,6 @@
   float: left;
 }
 @media only screen and (max-width: 992px) {
-  .footer .right-border {
-    width: auto;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
   .footer .footer-left {
     float: none;
   }
